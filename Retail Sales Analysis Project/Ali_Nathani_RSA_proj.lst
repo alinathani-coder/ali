@@ -1,0 +1,150 @@
+                                             RSA2a          11:55 Monday, February 10, 2020   1
+
+                                    The CONTENTS Procedure
+
+         Data Set Name        AN.RSA2A                      Observations          1427
+         Member Type          DATA                          Variables             12  
+         Engine               V9                            Indexes               0   
+         Created              02/10/2020 11:56:07           Observation Length    128 
+         Last Modified        02/10/2020 11:56:07           Deleted Observations  0   
+         Protection                                         Compressed            NO  
+         Data Set Type                                      Sorted                NO  
+         Label                                                                        
+         Data Representation  WINDOWS_64                                              
+         Encoding             wlatin1  Western (Windows)                              
+
+
+                               Engine/Host Dependent Information
+
+Data Set Page Size          65536                                                              
+Number of Data Set Pages    3                                                                  
+First Data Page             1                                                                  
+Max Obs per Page            511                                                                
+Obs in First Data Page      493                                                                
+Number of Data Set Repairs  0                                                                  
+ExtendObsCounter            YES                                                                
+Filename                    E:\DSP SAS Project Class\Retail Sales                              
+                            Analysis Project\rsa2a.sas7bdat                                    
+Release Created             9.0401M6                                                           
+Host Created                X64_10PRO                                                          
+Owner Name                  METROC\anathani                                                    
+File Size                   256KB                                                              
+File Size (bytes)           262144                                                             
+
+
+                          Alphabetic List of Variables and Attributes
+ 
+                  #    Variable            Type    Len    Format     Informat
+
+                 11    Category_code       Char      4    $4.        $4.     
+                  3    City                Char     13    $13.       $13.    
+                  2    Customer_Number     Num       8    BEST12.    BEST32. 
+                 10    Item_Description    Char     47    $47.       $47.    
+                  9    Item_Num            Num       8    BEST12.    BEST32. 
+                  6    Order_First_Time    Char      1    $1.        $1.     
+                  1    Order_Number        Char      8    $8.        $8.     
+                  5    Postal_Code         Char      6    $6.        $6.     
+                  4    Prov                Char      2    $2.        $2.     
+                 12    Quantity            Num       8    BEST12.    BEST32. 
+                  8    Sales_amount        Char     10    $10.       $10.    
+                  7    Source              Char      7    $7.        $7.     
+                                             RSA1a          11:55 Monday, February 10, 2020   2
+
+                       Item_
+  Obs   Customer_ID    Code        Source        Order_Date
+
+    1       7236714    R2671407    REGULAR    22JUN07:00:00:00
+    2       7236714    R2414607    REGULAR    05MAY07:00:00:00
+    3       7236714    R2414607    REGULAR    05MAY07:00:00:00
+    4       7236714    R2414607    REGULAR    05MAY07:00:00:00
+    5       7236714    X5947344    WEB        22JUL07:00:00:00
+    6       7236714    X5947344    WEB        22JUL07:00:00:00
+    7       7236714    X5947344    WEB        22JUL07:00:00:00
+    8       7236714    X5947344    WEB        22JUL07:00:00:00
+    9       7236714    X5947344    WEB        22JUL07:00:00:00
+   10       7236714    X5947344    WEB        22JUL07:00:00:00
+   11       7236714    X5947344    WEB        22JUL07:00:00:00
+   12       7236714    X5947344    WEB        22JUL07:00:00:00
+   13       7236714    X5947344    WEB        22JUL07:00:00:00
+   14       7236714    X5947344    WEB        22JUL07:00:00:00
+   15       7236714    X5947344    WEB        22JUL07:00:00:00
+   16       7236714    R2414588    REGULAR    05MAY07:00:00:00
+   17       7236714    R2414588    REGULAR    05MAY07:00:00:00
+   18       7236714    R2414588    REGULAR    05MAY07:00:00:00
+   19       7236714    X5851492    WEB        02JUN07:00:00:00
+   20       7236714    X5851492    WEB        02JUN07:00:00:00
+
+ 
+  Obs  Item_Description                                    Category         price      Quantity
+
+    1  14K YG ENAMEL LADYBUG LINK 7" OR 8" BRACELET 8         J            249.96             1
+    2  WOLFGANG PUCK COOKBOOK ADVENTURES                      K              13.5             3
+    3  WOLFGANG PUCK COOKBOOK LIVE/LOVE/EAT                   K              13.5             3
+    4  WOLFGANG PUCK COOKBOOK PIZZA/PASTA/MORE                K              13.5             3
+    5  S.S. GEMSTONE RING TURQUOISE 7                         B             29.99            11
+    6  STAFFORD CERAMIC PEELER, PARER AND SLICER SET          K             29.86            11
+    7  PANCAKE PUFFS                                          K             34.95            11
+    8  MICROPLANE ZESTER/GRATER SYSTEM                        K             39.96            11
+    9  MICROPLANE ZESTER/GRATER SYSTEM                        K             39.96            11
+   10  OVAL TURQUOISE CABOCHON EARRINGS                       B             59.99            11
+   11  UV COVER FOR SPA2GO                                    M             96.98            11
+   12  COMBO CARE KIT FOR SPA2GO                              M            124.98            11
+   13  SPA2GO INFFLATABLE PORTABLE WHIRLPOOL SPA              M            769.98            11
+   14  VACUVIN INSTANT MARINATOR W/PINEAPPLE SLICER           K                45            11
+   15  STAFFORD CERAMIC PEELER, PARER AND SLICER SET          K             29.86            11
+   16  WOLFGANG PUCK BISTRO CHEF KNIFE SET                    K             29.96             3
+   17  WOLFGANG PUCK BISTRO DUAL CONVECTION OVEN W/DRAWER     K            177.75             3
+   18  WOLFGANG PUCK BISTRO DUAL CONVECTION OVEN W/DRAWER     K            177.75             3
+   19  KING GEORGE V LARGE CENT COLLECTION 1911-1920          H             39.95             2
+   20  500PC. HEIRLOOM COLLECTION IN ALBUM                    H                 .             2
+                                             RSA2a          11:55 Monday, February 10, 2020   3
+
+                                                       Order_
+      Order_      Customer_                    Postal_ First_         Sales_
+  Obs Number         Number City          Prov  Code    Time  Source  amount         Item_Num
+
+    1 X6612539      7236714 HAMILTON       ON  L8T4T7    N    WEB     1,299.99         601535
+    2 R4335156      4630885 RICHMOND HILL  ON  L4B2S3    N    REGULAR 1,299.99         601535
+    3 R4336621      4630885 RICHMOND HILL  ON  L4B2S3    N    REGULAR 1,299.99         601535
+    4 R4335223       543215 VICTORIA       BC  V9C1B9    N    REGULAR 1,299.99         601535
+    5 R4335134     36155893 SCARBOROUGH    ON  M1G2V1    Y    REGULAR 1,299.99         601535
+    6 X6612217     25800277 TORONTO        ON  M6B2W8    N    WEB     1,299.99         601535
+    7 R4338436     36344554 NORTH YORK     ON  M2N1W7    Y    REGULAR 1,299.99         601535
+    8 X6611370     24020034 MISSISSAUGA    ON  L5T2P9    N    IVR     5,199.96         601535
+    9 R4336888   1175684362 KINCARDINE     ON  N2Z2N6    N    REGULAR 1,299.99         601535
+   10 R4336813      2749224 SMITHS FALLS   ON  K7A4S6    N    REGULAR 1,299.99         601535
+   11 R4337658      3481496 WINNIPEG       MB  R2R0V2    N    REGULAR 1,299.99         601535
+   12 R4339298     21700935 NORTH YORK     ON  M2R1X3    N    REGULAR 1,299.99         601535
+   13 X6611391     25222613 STONEY CREEK   ON  L8E2S9    N    WEB     1,299.99         601535
+   14 X6612192     36341568 SCARBOROUGH    ON  M1G2E1    Y    WEB     1,299.99         601535
+   15 X6611965   1135188728 WINNIPEG       MB  R2P0J7    N    IVR     1,299.99         601535
+   16 R4335221   1222793919 WINNIPEG       MB  R3J3A7    N    REGULAR 1,299.99         601535
+   17 R4335227     32927824 VANCOUVER      BC  V5Z1N6    N    REGULAR 1,299.99         601535
+   18 X6612178      4839866 CALGARY        AB  T3L2M2    N    IVR     1,299.99         601535
+   19 R4339319     23801277 WINNIPEG       MB  R2M1C4    N    REGULAR 1,299.99         601535
+   20 R4337690     34915496 NORTH YORK     ON  M3A1X8    N    REGULAR 1,299.99         601535
+
+ 
+                                                         Category_
+  Obs Item_Description                                     code           Quantity
+
+    1 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+    2 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+    3 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+    4 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+    5 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+    6 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+    7 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+    8 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  4
+    9 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   10 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   11 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   12 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   13 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   14 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   15 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   16 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   17 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   18 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   19 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1
+   20 ACER ASPIRE 16" MULTIMEDIA NOTEBOOK COMPUTER         EC90                  1

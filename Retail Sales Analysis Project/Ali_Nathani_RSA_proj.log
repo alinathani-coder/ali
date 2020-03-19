@@ -1,0 +1,430 @@
+1                                       The SAS System          11:55 Monday, February 10, 2020
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M6) 
+      Licensed to METRO COLLEGE OF TECHNOLOGY, Site 70201743.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.1
+      SAS/ETS 15.1
+      SAS/OR 15.1
+      SAS/IML 15.1
+      SAS/QC 15.1
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.15063  Workstation
+
+NOTE: SAS initialization used:
+      real time           3.54 seconds
+      cpu time            0.15 seconds
+      
+1          libname AN "F:\DSP SAS Project Class\Retail Sales Analysis Project";
+NOTE: Library AN does not exist.
+2          libname AN "C:\Users\alina\Documents\Retail Sales Analysis Project";
+NOTE: Library AN does not exist.
+3          libname AN "C:\Users\anathani\Desktop\DSP SAS Project class\Retail Sales Analysis
+3        ! Project";
+NOTE: Library AN does not exist.
+4          libname AN "F:\DSP SAS Project Class\Retail Sales Analysis Project";
+NOTE: Library AN does not exist.
+5          libname AN "E:\DSP SAS Project Class\Retail Sales Analysis Project";
+NOTE: Libref AN was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: E:\DSP SAS Project Class\Retail Sales Analysis Project
+6          
+7          *import data to SAS;
+8          
+9          PROC IMPORT OUT= AN.RSA1a
+10                     DATAFILE= "E:\DSP SAS Project Class\Retail Sales Analysis Pr
+11         oject\transactionhistoryforcurrentcustomers.csv"
+12                     DBMS=CSV REPLACE;
+13              GETNAMES=YES;
+14              DATAROW=2;
+15         RUN;
+
+SCL: Break
+SCL: Break
+16          /**********************************************************************
+17          *   PRODUCT:   SAS
+2                                       The SAS System          11:55 Monday, February 10, 2020
+
+18          *   VERSION:   9.4
+19          *   CREATOR:   External File Interface
+20          *   DATE:      10FEB20
+21          *   DESC:      Generated SAS Datastep Code
+22          *   TEMPLATE SOURCE:  (None Specified.)
+23          ***********************************************************************/
+24             data AN.RSA1A    ;
+25             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+26             infile 'E:\DSP SAS Project Class\Retail Sales Analysis
+26       ! Project\transactionhistoryforcurrentcustomers.csv' delimiter = ',' MISSOVER DSD
+26       ! lrecl=32767 firstobs=2 ;
+27                informat Customer_ID best32. ;
+28                informat Item_Code $8. ;
+29                informat Source $7. ;
+30                informat Order_Date anydtdtm40. ;
+31                informat Item_Description $50. ;
+32                informat Category $1. ;
+33                informat price best32. ;
+34                informat Quantity best32. ;
+35                format Customer_ID best12. ;
+36                format Item_Code $8. ;
+37                format Source $7. ;
+38                format Order_Date datetime. ;
+39                format Item_Description $50. ;
+40                format Category $1. ;
+41                format price best12. ;
+42                format Quantity best12. ;
+43             input
+44                         Customer_ID
+45                         Item_Code  $
+46                         Source  $
+47                         Order_Date
+48                         Item_Description  $
+49                         Category  $
+50                         price
+51                         Quantity
+52             ;
+53             if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro
+53       ! variable */
+54             run;
+
+NOTE: The infile 'E:\DSP SAS Project Class\Retail Sales Analysis 
+      Project\transactionhistoryforcurrentcustomers.csv' is:
+      
+      Filename=E:\DSP SAS Project Class\Retail Sales Analysis 
+      Project\transactionhistoryforcurrentcustomers.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=3394908,
+      Last Modified=27Jan2020:15:58:01,
+      Create Time=29Jan2020:15:31:19
+
+NOTE: Invalid data for price in line 21 85-92.
+3                                       The SAS System          11:55 Monday, February 10, 2020
+
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+
+21        0007236714,X5851492,WEB,6/2/2007  12:00:00 AM,500PC. HEIRLOOM COLLECTION IN ALBUM,H,"
+      86  1,695.00",2 96
+Customer_ID=7236714 Item_Code=X5851492 Source=WEB Order_Date=02JUN07:00:00:00
+Item_Description=500PC. HEIRLOOM COLLECTION IN ALBUM Category=H price=. Quantity=2 _ERROR_=1
+_N_=20
+NOTE: Invalid data for price in line 130 91-98.
+130       0007236714,R3239763,REGULAR,10/13/2007  12:00:00 AM,500PC. HEIRLOOM COLLECTION IN ALB
+      86  UM,H,"1,695.00",6 102
+Customer_ID=7236714 Item_Code=R3239763 Source=REGULAR Order_Date=13OCT07:00:00:00
+Item_Description=500PC. HEIRLOOM COLLECTION IN ALBUM Category=H price=. Quantity=6 _ERROR_=1
+_N_=129
+NOTE: Invalid data for price in line 397 102-109.
+397       0007236714,R3714663,REGULAR,1/6/2008  12:00:00 AM,DELL XPS 420 DESKTOP W/INTEL QUAD C
+      86  ORE PROCESSOR,E,"1,699.00",3 113
+Customer_ID=7236714 Item_Code=R3714663 Source=REGULAR Order_Date=06JAN08:00:00:00
+Item_Description=DELL XPS 420 DESKTOP W/INTEL QUAD CORE PROCESSOR Category=E price=. Quantity=3
+_ERROR_=1 _N_=396
+NOTE: Invalid data for price in line 424 95-102.
+424       0007236714,X6342134,WEB,1/8/2008  12:00:00 AM,"14K YG ARTFORMED HEART ROLO 7.75"" BRA
+      86  CELET",J,"2,099.99",1 106
+Customer_ID=7236714 Item_Code=X6342134 Source=WEB Order_Date=08JAN08:00:00:00
+Item_Description=14K YG ARTFORMED HEART ROLO 7.75" BRACELET Category=J price=. Quantity=1
+_ERROR_=1 _N_=423
+NOTE: Invalid data for price in line 434 94-101.
+434       0007236714,R3729163,REGULAR,1/8/2008  12:00:00 AM,"14K YG SLENDIDO TORCHON 8.5"" BRAC
+      86  ELET",J,"1,899.89",1 105
+Customer_ID=7236714 Item_Code=R3729163 Source=REGULAR Order_Date=08JAN08:00:00:00
+Item_Description=14K YG SLENDIDO TORCHON 8.5" BRACELET Category=J price=. Quantity=1 _ERROR_=1
+_N_=433
+NOTE: Invalid data for price in line 458 94-101.
+458       0007236714,R3729236,REGULAR,1/8/2008  12:00:00 AM,"14K YG SLENDIDO TORCHON 8.5"" BRAC
+      86  ELET",J,"1,899.89",1 105
+Customer_ID=7236714 Item_Code=R3729236 Source=REGULAR Order_Date=08JAN08:00:00:00
+Item_Description=14K YG SLENDIDO TORCHON 8.5" BRACELET Category=J price=. Quantity=1 _ERROR_=1
+_N_=457
+NOTE: Invalid data for price in line 483 82-89.
+483       0007236714,R3760368,REGULAR,1/15/2008  12:00:00 AM,14K WG EMERALD & DIA RING 7,J,"2,3
+      86  99.99",1 93
+Customer_ID=7236714 Item_Code=R3760368 Source=REGULAR Order_Date=15JAN08:00:00:00
+Item_Description=14K WG EMERALD & DIA RING 7 Category=J price=. Quantity=1 _ERROR_=1 _N_=482
+NOTE: Invalid data for price in line 702 86-93.
+702       0007236714,X6423160,WEB,2/10/2008  12:00:00 AM,14K TWO TONE GOLD GEMSTONE NECKLACE,J,
+      86  "1,999.77",1 97
+Customer_ID=7236714 Item_Code=X6423160 Source=WEB Order_Date=10FEB08:00:00:00
+Item_Description=14K TWO TONE GOLD GEMSTONE NECKLACE Category=J price=. Quantity=1 _ERROR_=1
+_N_=701
+NOTE: Invalid data for price in line 703 92-99.
+703       0007236714,X6422801,WEB,2/10/2008  12:00:00 AM,18K TWO TONE GOLD CABLE LINK DIA NECKL
+      86  ACE,J,"3,599.77",1 103
+Customer_ID=7236714 Item_Code=X6422801 Source=WEB Order_Date=10FEB08:00:00:00
+4                                       The SAS System          11:55 Monday, February 10, 2020
+
+Item_Description=18K TWO TONE GOLD CABLE LINK DIA NECKLACE Category=J price=. Quantity=1
+_ERROR_=1 _N_=702
+NOTE: Invalid data for price in line 704 101-108.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+
+704       0007236714,X6422797,WEB,2/10/2008  12:00:00 AM,18K TWO TONE GOLD CABLE LINK DIA ACCEN
+      86  TED BRACELET,J,"2,399.77",1 112
+Customer_ID=7236714 Item_Code=X6422797 Source=WEB Order_Date=10FEB08:00:00:00
+Item_Description=18K TWO TONE GOLD CABLE LINK DIA ACCENTED BRACELET Category=J price=.
+Quantity=1 _ERROR_=1 _N_=703
+NOTE: Invalid data for price in line 716 101-108.
+716       0007236714,X6426096,WEB,2/12/2008  12:00:00 AM,18K TWO TONE GOLD CABLE LINK DIA ACCEN
+      86  TED BRACELET,J,"2,399.77",1 112
+Customer_ID=7236714 Item_Code=X6426096 Source=WEB Order_Date=12FEB08:00:00:00
+Item_Description=18K TWO TONE GOLD CABLE LINK DIA ACCENTED BRACELET Category=J price=.
+Quantity=1 _ERROR_=1 _N_=715
+NOTE: Invalid data for price in line 726 92-99.
+726       0007236714,X6426097,WEB,2/12/2008  12:00:00 AM,18K TWO TONE GOLD CABLE LINK DIA NECKL
+      86  ACE,J,"3,599.77",1 103
+Customer_ID=7236714 Item_Code=X6426097 Source=WEB Order_Date=12FEB08:00:00:00
+Item_Description=18K TWO TONE GOLD CABLE LINK DIA NECKLACE Category=J price=. Quantity=1
+_ERROR_=1 _N_=725
+NOTE: Invalid data for price in line 727 86-93.
+727       0007236714,X6428320,WEB,2/13/2008  12:00:00 AM,14K TWO TONE GOLD GEMSTONE NECKLACE,J,
+      86  "1,999.77",1 97
+Customer_ID=7236714 Item_Code=X6428320 Source=WEB Order_Date=13FEB08:00:00:00
+Item_Description=14K TWO TONE GOLD GEMSTONE NECKLACE Category=J price=. Quantity=1 _ERROR_=1
+_N_=726
+NOTE: Invalid data for price in line 742 92-99.
+742       0007236714,X6433707,WEB,2/15/2008  12:00:00 AM,18K TWO TONE GOLD CABLE LINK DIA NECKL
+      86  ACE,J,"3,599.77",2 103
+Customer_ID=7236714 Item_Code=X6433707 Source=WEB Order_Date=15FEB08:00:00:00
+Item_Description=18K TWO TONE GOLD CABLE LINK DIA NECKLACE Category=J price=. Quantity=2
+_ERROR_=1 _N_=741
+NOTE: Invalid data for price in line 743 92-99.
+743       0007236714,X6442929,WEB,2/19/2008  12:00:00 AM,18K TWO TONE GOLD CABLE LINK DIA NECKL
+      86  ACE,J,"3,599.77",1 103
+Customer_ID=7236714 Item_Code=X6442929 Source=WEB Order_Date=19FEB08:00:00:00
+Item_Description=18K TWO TONE GOLD CABLE LINK DIA NECKLACE Category=J price=. Quantity=1
+_ERROR_=1 _N_=742
+NOTE: Invalid data for price in line 744 92-99.
+744       0007236714,X6441528,WEB,2/18/2008  12:00:00 AM,18K TWO TONE GOLD CABLE LINK DIA NECKL
+      86  ACE,J,"3,599.77",1 103
+Customer_ID=7236714 Item_Code=X6441528 Source=WEB Order_Date=18FEB08:00:00:00
+Item_Description=18K TWO TONE GOLD CABLE LINK DIA NECKLACE Category=J price=. Quantity=1
+_ERROR_=1 _N_=743
+NOTE: Invalid data for price in line 747 92-99.
+747       0007236714,X6438097,WEB,2/17/2008  12:00:00 AM,18K TWO TONE GOLD CABLE LINK DIA NECKL
+      86  ACE,J,"3,599.77",2 103
+Customer_ID=7236714 Item_Code=X6438097 Source=WEB Order_Date=17FEB08:00:00:00
+Item_Description=18K TWO TONE GOLD CABLE LINK DIA NECKLACE Category=J price=. Quantity=2
+_ERROR_=1 _N_=746
+5                                       The SAS System          11:55 Monday, February 10, 2020
+
+NOTE: Invalid data for price in line 749 92-99.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+
+749       0007236714,X6444016,WEB,2/19/2008  12:00:00 AM,18K TWO TONE GOLD CABLE LINK DIA NECKL
+      86  ACE,J,"3,599.77",1 103
+Customer_ID=7236714 Item_Code=X6444016 Source=WEB Order_Date=19FEB08:00:00:00
+Item_Description=18K TWO TONE GOLD CABLE LINK DIA NECKLACE Category=J price=. Quantity=1
+_ERROR_=1 _N_=748
+NOTE: Invalid data for price in line 765 104-111.
+765       0007236714,X6448893,WEB,2/22/2008  12:00:00 AM,"18K YELLOW GOLD CAMEO AND RUBY CABOCH
+      86  AN 18""NECKLAC",J,"1,149.99",1 115
+Customer_ID=7236714 Item_Code=X6448893 Source=WEB Order_Date=22FEB08:00:00:00
+Item_Description=18K YELLOW GOLD CAMEO AND RUBY CABOCHAN 18"NECKLAC Category=J price=.
+Quantity=1 _ERROR_=1 _N_=764
+NOTE: Invalid data for price in line 785 104-111.
+WARNING: Limit set by ERRORS= option reached.  Further errors of this type will not be printed.
+785       0007236714,X6450651,WEB,2/23/2008  12:00:00 AM,"18K YELLOW GOLD CAMEO AND RUBY CABOCH
+      86  AN 18""NECKLAC",J,"1,149.99",1 115
+Customer_ID=7236714 Item_Code=X6450651 Source=WEB Order_Date=23FEB08:00:00:00
+Item_Description=18K YELLOW GOLD CAMEO AND RUBY CABOCHAN 18"NECKLAC Category=J price=.
+Quantity=1 _ERROR_=1 _N_=784
+NOTE: 34288 records were read from the infile 'E:\DSP SAS Project Class\Retail Sales Analysis 
+      Project\transactionhistoryforcurrentcustomers.csv'.
+      The minimum record length was 54.
+      The maximum record length was 118.
+NOTE: The data set AN.RSA1A has 34288 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           2.75 seconds
+      cpu time            0.11 seconds
+      
+
+Errors detected in submitted DATA step. Examine log.
+34288 rows created in AN.RSA1A from E:\DSP SAS Project Class\Retail Sales Analysis 
+Project\transactionhistoryforcurrentcustomers.csv.
+  
+  
+  
+ERROR: Import unsuccessful.  See SAS Log for details.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           16.67 seconds
+      cpu time            0.36 seconds
+      
+55         
+
+
+56         PROC IMPORT OUT= AN.RSA2a
+57                     DATAFILE= "E:\DSP SAS Project Class\Retail Sales Analysis Pr
+58         oject\ec90_data.csv"
+59                     DBMS=CSV REPLACE;
+60              GETNAMES=YES;
+61              DATAROW=2;
+6                                       The SAS System          11:55 Monday, February 10, 2020
+
+62         RUN;
+
+63          /**********************************************************************
+64          *   PRODUCT:   SAS
+65          *   VERSION:   9.4
+66          *   CREATOR:   External File Interface
+67          *   DATE:      10FEB20
+68          *   DESC:      Generated SAS Datastep Code
+69          *   TEMPLATE SOURCE:  (None Specified.)
+70          ***********************************************************************/
+71             data AN.RSA2A    ;
+72             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+73             infile 'E:\DSP SAS Project Class\Retail Sales Analysis Project\ec90_data.csv'
+73       ! delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+74                informat Order_Number $8. ;
+75                informat Customer_Number best32. ;
+76                informat City $13. ;
+77                informat Prov $2. ;
+78                informat Postal_Code $6. ;
+79                informat Order_First_Time $1. ;
+80                informat Source $7. ;
+81                informat Sales_amount $10. ;
+82                informat Item_Num best32. ;
+83                informat Item_Description $47. ;
+84                informat Category_code $4. ;
+85                informat Quantity best32. ;
+86                format Order_Number $8. ;
+87                format Customer_Number best12. ;
+88                format City $13. ;
+89                format Prov $2. ;
+90                format Postal_Code $6. ;
+91                format Order_First_Time $1. ;
+92                format Source $7. ;
+93                format Sales_amount $10. ;
+94                format Item_Num best12. ;
+95                format Item_Description $47. ;
+96                format Category_code $4. ;
+97                format Quantity best12. ;
+98             input
+99                         Order_Number  $
+100                        Customer_Number
+101                        City  $
+102                        Prov  $
+103                        Postal_Code  $
+104                        Order_First_Time  $
+105                        Source  $
+106                        Sales_amount  $
+107                        Item_Num
+108                        Item_Description  $
+109                        Category_code  $
+110                        Quantity
+7                                       The SAS System          11:55 Monday, February 10, 2020
+
+111            ;
+112            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro
+112      ! variable */
+113            run;
+
+NOTE: The infile 'E:\DSP SAS Project Class\Retail Sales Analysis Project\ec90_data.csv' is:
+      Filename=E:\DSP SAS Project Class\Retail Sales Analysis Project\ec90_data.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=161291,
+      Last Modified=27Jan2020:15:58:01,
+      Create Time=29Jan2020:15:31:19
+
+NOTE: 1427 records were read from the infile 'E:\DSP SAS Project Class\Retail Sales Analysis 
+      Project\ec90_data.csv'.
+      The minimum record length was 11.
+      The maximum record length was 143.
+NOTE: The data set AN.RSA2A has 1427 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+1427 rows created in AN.RSA2A from E:\DSP SAS Project Class\Retail Sales Analysis 
+Project\ec90_data.csv.
+  
+  
+  
+NOTE: AN.RSA2A data set was successfully created.
+NOTE: The data set AN.RSA2A has 1427 observations and 12 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.04 seconds
+      
+
+114        *UNDERSTAND YOUR DATA AND ITS PROPERTIES;
+115        
+116        
+117        TITLE "RSA1a";
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           4.36 seconds
+      cpu time            0.06 seconds
+      
+ERROR: User asked for termination
+NOTE: The SAS System stopped processing this step because of errors.
+118        PROC CONTENTS DATA = AN.RSA1a;
+119        RUN;
+120        
+121        TITLE "RSA2a";
+
+
+122        PROC CONTENTS DATA = AN.RSA2a;
+123        RUN;
+8                                       The SAS System          11:55 Monday, February 10, 2020
+
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.90 seconds
+      cpu time            0.03 seconds
+      
+NOTE: The PROCEDURE CONTENTS printed page 1.
+
+124        
+125        
+126        *DATA VALUE;
+127        
+128        PROC PRINT DATA = AN.RSA1a (OBS = 20);
+129        TITLE "RSA1a";
+130        RUN;
+
+NOTE: There were 20 observations read from the data set AN.RSA1A.
+NOTE: The PROCEDURE PRINT printed page 2.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.12 seconds
+      cpu time            0.00 seconds
+      
+
+131        PROC PRINT DATA = AN.RSA2a (OBS = 20);
+132        TITLE "RSA2a";
+133        RUN;
+
+NOTE: There were 20 observations read from the data set AN.RSA2A.
+NOTE: The PROCEDURE PRINT printed page 3.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+134        
+135        *DUPLICATES;
+136        *COUNT COLS;
+137        
+138        TITLE "Count of Distinct Customer IDs in RSA1a";
+139        
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           5.47 seconds
+      cpu time            0.06 seconds
+      
+ERROR: User asked for termination
+NOTE: The SAS System stopped processing this step because of errors.
+140        PROC SQL;
+
+
+ERROR: Errors printed on pages 5,7,8.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+9                                       The SAS System          11:55 Monday, February 10, 2020
+
+NOTE: The SAS System used:
+      real time           32.27 seconds
+      cpu time            0.78 seconds
+      
