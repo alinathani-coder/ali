@@ -1,0 +1,186 @@
+﻿"Cube Title","Product Id","CANSIM Id",URL,"Cube Notes","Archive Status",Frequency,"Start Reference Period","End Reference Period","Total number of dimensions",Universe,"Variable List"
+"Manufacturing industries, total annual energy fuel consumption in gigajoules, 31-33",25100025,128-0006,"https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2510002501",1;17;18;20;21,"CURRENT - a cube available to the public and that is current",Annual,1995-01-01,2018-01-01,3,,
+
+"Dimension ID","Dimension name","Dimension Notes","Dimension Correction Notes","Dimension Definitions"
+1,Geography,,,
+2,"Fuel type",,,
+3,"North American Industry Classification System (NAICS)",,,
+
+"Dimension ID","Member Name","Classification Code","Member ID","Parent Member ID",Terminated,"Member Notes","Member Correction Notes","Member Geo Attribute Keys","Member Definitions"
+1,Canada,[11124],1,,,,,,
+2,"Total, energy consumed as fuel (higher heating value)",,1,,,16,,,
+2,Coal,,2,1,,2,,,
+2,"Coal coke",,3,1,,3,,,
+2,"Coke oven gas",,4,1,,4,,,
+2,Electricity,,5,1,,5,,,
+2,"Heavy fuel oil",,6,1,,6,,,
+2,"Middle distillates",,7,1,,7,,,
+2,"Natural gas",,8,1,,8,,,
+2,"Petroleum coke and coke from catalytic cracking catalyst",,9,1,,9,,,
+2,Propane,,10,1,,10,,,
+2,"Refinery fuel gas",,11,1,,11,,,
+2,"Spent pulping liquor",,12,1,,12,,,
+2,Steam,,13,1,,13,,,
+2,Wood,,14,1,,14,,,
+2,Butane,,15,1,,19,,,
+3,Manufacturing,[31-33],1,,,16,,,
+3,"Food manufacturing",[311],2,1,,,,,
+3,"Fruit and vegetable preserving and specialty food manufacturing",[3114],3,2,,,,,
+3,"Dairy product manufacturing",[3115],4,2,,,,,
+3,"Meat product manufacturing",[3116],5,2,,,,,
+3,"Seafood product preparation and packaging",[3117],6,2,,,,,
+3,"Bakeries and tortilla manufacturing",[3118],7,2,,,,,
+3,"Beverage and tobacco product manufacturing",[312],8,1,,,,,
+3,"Beverage manufacturing",[3121],9,8,,,,,
+3,"Tobacco manufacturing",[31212],10,8,,,,,
+3,"Tobacco manufacturing",[3122],11,8,,,,,
+3,"Textile mills",[313],12,1,,,,,
+3,"Textile product mills",[314],13,1,,,,,
+3,"Clothing manufacturing",[315],14,1,,,,,
+3,"Leather and allied product manufacturing",[316],15,1,,,,,
+3,"Wood product manufacturing",[321],16,1,,,,,
+3,"Sawmills (except shingle and shake mills)",[321111],17,16,,,,,
+3,"Shingle and shake mills",[321112],18,16,,,,,
+3,"Wood preservation",[321114],19,16,,,,,
+3,"Particle board and fibreboard mills",[321216],20,16,,,,,
+3,"Paper manufacturing",[322],21,1,,,,,
+3,"Mechanical pulp mills",[322111],22,21,,,,,
+3,"Chemical pulp mills",[322112],23,21,,,,,
+3,"Paper (except newsprint) mills",[322121],24,21,,,,,
+3,"Newsprint mills",[322122],25,21,,,,,
+3,"Paperboard mills",[322130],26,21,,,,,
+3,"Converted paper product manufacturing",[3222],27,21,,,,,
+3,"Printing and related support activities",[323],28,1,,,,,
+3,"Petroleum and coal products manufacturing",[324],29,1,,,,,
+3,"Petroleum refineries",[32411],30,29,,,,,
+3,"Chemical manufacturing",[325],31,1,,,,,
+3,"Petrochemical manufacturing",[32511],32,31,,,,,
+3,"Industrial gas manufacturing",[32512],33,31,,,,,
+3,"Alkali and chlorine manufacturing",[325181],34,31,,,,,
+3,"All other basic inorganic chemical manufacturing",[325189],35,31,,,,,
+3,"Other basic organic chemical manufacturing",[325190],36,31,,,,,
+3,"Resin and synthetic rubber manufacturing",[32521],37,31,,,,,
+3,"Artificial and synthetic fibres and filaments manufacturing",[32522],38,31,,,,,
+3,"Chemical fertilizer (except potash) manufacturing",[325313],39,31,,,,,
+3,"Mixed fertilizer manufacturing",[325314],40,31,,,,,
+3,"Pesticide and other agricultural chemical manufacturing",[32532],41,31,,,,,
+3,"Pharmaceutical and medicine manufacturing",[3254],42,31,,,,,
+3,"Paint, coating and adhesive manufacturing",[3255],43,31,,,,,
+3,"Soap, cleaning compound and toilet preparation manufacturing",[3256],44,31,,,,,
+3,"Other chemical product manufacturing",[3259],45,31,,15,,,
+3,"Plastics and rubber products manufacturing",[326],46,1,,,,,
+3,"Plastics product manufacturing",[3261],47,46,,,,,
+3,"Motor vehicle plastics parts manufacturing",[326193],48,46,,,,,
+3,"Rubber product manufacturing",[3262],49,46,,,,,
+3,"Non-metallic mineral product manufacturing",[327],50,1,,,,,
+3,"Glass manufacturing",[327214],51,50,,,,,
+3,"Glass product manufacturing from purchased glass",[327215],52,50,,,,,
+3,"Cement manufacturing",[32731],53,50,,,,,
+3,"Lime manufacturing",[32741],54,50,,,,,
+3,"Gypsum product manufacturing",[32742],55,50,,,,,
+3,"Primary metal manufacturing",[331],56,1,,,,,
+3,"Iron and steel mills and ferro-alloy manufacturing",[3311],57,56,,,,,
+3,"Primary production of alumina and aluminum",[331313],58,56,,,,,
+3,"Non-ferrous metal (except aluminum) smelting and refining",[33141],59,56,,,,,
+3,"Iron foundries",[331511],60,56,,,,,
+3,"Steel foundries",[331514],61,56,,,,,
+3,"Non-ferrous metal foundries",[33152],62,56,,,,,
+3,"Fabricated metal product manufacturing",[332],63,1,,,,,
+3,"Forging and stamping",[3321],64,63,,,,,
+3,"Cutlery and hand tool manufacturing",[3322],65,63,,,,,
+3,"Architectural and structural metals manufacturing",[3323],66,63,,,,,
+3,"Boiler, tank and shipping container manufacturing",[3324],67,63,,,,,
+3,"Hardware manufacturing",[3325],68,63,,,,,
+3,"Spring and wire product manufacturing",[3326],69,63,,,,,
+3,"Machine shops, turned product, and screw, nut and bolt manufacturing",[3327],70,63,,,,,
+3,"Coating, engraving, heat treating and allied activities",[3328],71,63,,,,,
+3,"Other fabricated metal product manufacturing",[3329],72,63,,,,,
+3,"Machinery manufacturing",[333],73,1,,,,,
+3,"Computer and electronic product manufacturing",[334],74,1,,,,,
+3,"Electrical equipment, appliance and component manufacturing",[335],75,1,,,,,
+3,"Transportation equipment manufacturing",[336],76,1,,,,,
+3,"Automobile and light-duty motor vehicle manufacturing",[33611],77,76,,,,,
+3,"Heavy duty truck manufacturing",[33612],78,76,,,,,
+3,"Motor vehicle gasoline engine and engine parts manufacturing",[33631],79,76,,,,,
+3,"Motor vehicle electrical and electronic equipment manufacturing",[33632],80,76,,,,,
+3,"Motor vehicle steering and suspension components (except spring) manufacturing",[33633],81,76,,,,,
+3,"Motor vehicle brake system manufacturing",[33634],82,76,,,,,
+3,"Motor vehicle transmission and power train parts manufacturing",[33635],83,76,,,,,
+3,"Motor vehicle seating and interior trim manufacturing",[33636],84,76,,,,,
+3,"Motor vehicle metal stamping",[33637],85,76,,,,,
+3,"Other motor vehicle parts manufacturing",[33639],86,76,,,,,
+3,"Aerospace product and parts manufacturing",[3364],87,76,,,,,
+3,"Railroad rolling stock manufacturing",[3365],88,76,,,,,
+3,"Ship and boat building",[3366],89,76,,,,,
+3,"Other transportation equipment manufacturing",[3369],90,76,,,,,
+3,"Furniture and related product manufacturing",[337],91,1,,,,,
+3,"Miscellaneous manufacturing",[339],92,1,,,,,
+3,"Steel product manufacturing from purchased steel",[3312],93,56,,,,,
+3,"Other food manufacturing",,94,2,,22,,,
+3,"Other beverage manufacturing",,95,8,,23,,,
+3,"Other wood product manufacturing",,96,16,,24,,,
+3,"Other petroleum and coal products",,97,29,,25,,,
+3,"Other plastics manufacturing",,98,46,,26,,,
+3,"Other non-metallic mineral product manufacturing",,99,50,,27,,,
+3,"Other primary metal manufacturing",,100,56,,28,,,
+3,"Synthetic dye and pigment manufacturing",[32513],101,31,,,,,
+3,"Motor vehicle body and trailer manufacturing",[3362],102,76,,,,,
+3,"Cannabis product manufacturing",[3123],103,8,,,,,
+
+Symbol Legend
+Description,Symbol
+"not available for a specific reference period",..
+"less than the limit of detection",<LOD
+"value rounded to 0 (zero) where there is a meaningful distinction between true zero and the value that was rounded",0s
+"data quality: excellent",A
+"data quality: very good",B
+"data quality: good",C
+"data quality: acceptable",D
+"use with caution",E
+"too unreliable to be published.",F
+"not applicable",...
+preliminary,p
+revised,r
+"suppressed to meet the confidentiality requirements of the Statistics Act",x
+terminated,t
+
+"Survey Code","Survey Name"
+5047,"Annual Industrial Consumption of Energy Survey"
+
+"Subject Code","Subject Name"
+25,Energy
+
+"Note ID",Note
+1,"For the 1990 estimates, please see  table 25-10-0008."
+2,"Coal includes the following coal types: bituminous, sub-bituminous, lignite and anthracite."
+3,"Coal coke is a hard, porous product made from baking bituminous coal in ovens at high temperatures. Often used as a fuel and a reducing agent in smelting iron ore in a blast furnace."
+4,"Coke oven gas is the difference between the thermal value of coal charged to coke ovens less the thermal value of the resultant coke production, with an allowance for heating and losses."
+5,"Electricity is a form of energy emanating from electric charges at rest or in movement."
+6,"Heavy fuel oil is all grades of residual type fuels including low sulphur. Usually used for steam and electric power generation and diesel motors. Includes fuel oil numbers 4, 5 and 6."
+7,"Middle distillates includes light fuel oil (numbers 1, 2 and 3), kerosene, mineral lamp oil, stove oil, furnace fuel oil, gas oils diesel and light industrial fuel. Does not include gasoline used for transportation off the plant site."
+8,"Natural gas is a mixture of hydrocarbons (principally methane) and small quantities of various hydrocarbons existing in the gaseous phase or in solution with crude oil in underground reservoirs."
+9,"Petroleum coke is a residue that is the final product in the condensation process in cracking. Includes pitch coke on catalytic cracking catalyst which is coke produced from the refining process of breaking down the larger, heavier, and more complex hydrocarbon molecules into simpler and lighter molecules."
+10,"Propane is a normally gaseous straight-chain hydrocarbon (C3H8) extracted from natural gas or refinery gas streams. It can also take a liquid form."
+11,"Refinery fuel gas is the remaining unseparated gaseous fractions produced in refinery distillation or cracking processes, after marketable products have been extracted, usually consumed as refinery fuel. It is also known as still gas."
+12,"Spent pulping liquor is a by-product of the paper making process containing carbohydrate and lignin decomposition products. Also known as black liquor."
+13,"Steam is a gas resulting from the vaporization of a liquid or the sublimation of a solid, generated by condensing or noncondensing turbines. The steam consumed is purchased (received by the establishment)."
+14,"Wood is wood and wood energy used as fuel, including round wood (cord wood), lignin, wood scraps from furniture and window frame manufacturing, wood chips, bark, sawdust, forest residues, charcoal and pulp waste."
+15,"This combines the North American Industry Classification System (NAICS) codes 325130 and 3259.
+"
+16,"Totals may not add due to rounding."
+17,"The coefficient of variation (CV) is an estimate used to express the sampling variance (or sampling error) of the estimate. Generally, the more commonly reported variables obtained very good CVs (of less than 10%), while the less commonly reported variables were associated with higher but still acceptable CVs (under 25%). The qualities of CVs are rated as follows: A - Excellent (CV between 0.01% to 4.9%); B - Very good (CV between 5.0% to 9.9%); C - Good (CV between 10.0% to 14.9%); D - Acceptable (CV between 15.0% to 24.9%); E - Use with caution (CV between 25.0% to 34.9%); F - Too unreliable to be published (CV greater than or equal to 35.0%)."
+18,"Totals may include confidential data not published."
+19,"Butane is a gaseous hydrocarbon extracted from natural gas or refinery gas streams. Primarily used for blending in high-octane gasoline, for residential and commercial heating, and in the manufacture of chemicals and synthetic rubber."
+20,"As of 2013 the factor used to convert the refinery fuel gas estimates into gigajoules from natural units was revised to 36.08 from 42.5."
+21,"Estimates for the most recent year are preliminary.  Preliminary data are subject to revision."
+22,"This combines the North American Industry Classification System (NAICS) codes 311100, 311200, 311300, 311900"
+23,"This combines the North American Industry Classification System (NAICS) codes 312110, 312130, 312140"
+24,"This combines the North American Industry Classification System (NAICS) codes 321211, 321212, 321215, 321217, 321900"
+25,"This combines the North American Industry Classification System (NAICS) codes 324120, 324190"
+26,"This combines the North American Industry Classification System (NAICS) codes 326191, 326196, 326198, 326110, 326120, 326130, 326140, 326150, 326160."
+27,"This combines the North American Industry Classification System (NAICS) codes 327320, 327330, 327390, 327100, 327900"
+28,"This combines the North American Industry Classification System (NAICS) codes 331317, 331420, 331490"
+
+"Dimension ID","Member ID","Attribute Key",Title,Label,"Long Label",Value
+
+

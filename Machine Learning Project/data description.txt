@@ -1,0 +1,14 @@
+Recovery time objective for servers to come back online
+Recover Point objective till what time can you backup or retrieve data
+
+RTO - inhouse vs SLA for 3rd party vendors
+RTO - dependendent on risk appetite
+
+
+0 hrs = has to be available continuously regardless (critical on service impact)
+< 4hrs = not as much service impact
+0 & < 4hrs = in between - 0 - 4 hrs (depending on other variables) dependancy on other factors
+
+blank = not able to locate them
+
+
