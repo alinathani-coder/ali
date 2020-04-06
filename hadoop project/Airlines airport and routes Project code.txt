@@ -1,0 +1,164 @@
+#Airlines, airports and routes Project
+#Data source downloaded from https://openflights.org/data.html
+#3 files downloaded, airports.dat, routes.dat and airlines.dat
+
+#Step 1. Preparing the folders for importing data
+#In HortonWorks and connected via Putty.exe within the Linux box (Sandbox), use following code to open the home directory and make a folder within the lab folder
+
+cd /home
+cd lab 
+mkdir project
+
+#Step 2. Using FileZilla Site Manager, transfer the .dat files to the project folder
+#Step 3. make an hdfs project folder (if doesn't already exist) using the following code from within the Linux box (Sandbox)
+
+hdfs dfs -mkdir /user/project
+
+#Step 4. transfer the files from the local Linux box to HDFS
+#first open the project folder on local box
+
+cd project 
+
+#then transfer all files (specify file names instead of * if you want to do 1 at a time) to the HDFS box
+
+hdfs dfs -put * /user/project
+
+#Step 5. Run the Pig tool and start loading the data into a variable, defining the variables accordingly
+-------------------------------------------------
+#Q1 FIRST 5 AIRLINES IN ALPHABETICAL ORDER
+a = load '/user/project/airlines.dat' USING PigStorage(',') AS (airline_id:long, name:chararray, alias:chararray, IATA:chararray, ICAO:chararray, callsign:chararray, country:chararray, active:chararray);
+
+#Run the following code to list the distinct airlines:
+
+b = foreach a generate airline_id, LOWER(name) as name;
+
+c = distinct b;
+d = limit c 5; #will list the top/first 5 in the list
+
+STORE d into '/user/project/distinct_airlines' using PigStorage('\t') ;
+
+#to check the temp file name created for the output
+fs -ls /user/project/distinct_airlines; 
+
+#to get the output printed on screen instead of using the Dump command which also shows all codes
+
+fs -cat /user/project/distinct_airlines/part-v002-o000-r-00000;
+
+
+OUTPUT:
+2       135 airways
+3       1time airline
+4       2 sqn no 1 elementary flying training school
+5       213 flight unit
+6       223 flight unit state airline
+
+
+-------------------------------------------------
+#Q2 FINDING THE NUMBER OF AIRPORTS IN EACH COUNTRY - TOP 5 COUNTRIES
+
+a = load '/user/project/airports.dat' using PigStorage(',') AS (airport_id: chararray, name:chararray, city:chararray, country:chararray, IATA:chararray, ICAO:chararray, lat:float, long:float, altitude:long, timezone:float, DST:chararray, Tzdata:chararray, type:chararray, source:chararray);
+
+b = group a by country;
+c = foreach b generate group as country,COUNT(a) as cnt;
+d = order c by cnt desc;
+e = limit d 5;
+
+STORE e into '/user/project/top_airports' using PigStorage('\t') ;
+
+#to check the temp file name created for the output
+fs -ls /user/project/top_airports; 
+
+#to get the output printed on screen instead of using the Dump command which also shows all codes
+#FIRST 5 AIRLINES IN ALPHABETICAL ORDER
+fs -cat /user/project/top_airports/part-v005-o000-r-00000;
+
+OUTPUT:
+United States   1434
+Canada  417
+Australia       294
+Germany 241
+Russia  238
+
+--------------------------------------------------------
+#Q3 FINDING THE DISTINCT ROUTES BETWEEN SOURCE AND DESTINATION AIRPORTS, Submit the first five rows.
+
+a = load '/user/project/routes.dat' using PigStorage(',') AS (airline:chararray, ID:long, source:chararray, sid:long, dest:chararray, did:chararray, codeshare:chararray, direct:int, equip:long);
+b = foreach a generate source, sid, dest, did;
+c = distinct b;
+d = limit c 5;
+
+STORE d into '/user/project/distinct_routes' using PigStorage('\t') ;
+
+
+#go back to linux box and launch hive
+#create the routes table in hive after creating a database
+create database airlines;
+use airlines;
+create table airports (
+     airport_id string,
+     name string,
+     city string,
+     country string,
+     IATA string,
+     ICAO string,
+     lat string,
+     lon string,
+     alt string,
+     timezone string,
+     DST string,
+     Tz string,
+     type string,
+     Source string)
+     row format delimited
+     fields terminated by ',';
+
+load data inpath '/user/project/airports.dat' overwrite into table airlines.airports;
+
+create table dist_routes (
+     source string,
+     sid bigint,
+     dest string,
+     did bigint)
+     row format delimited
+     fields terminated by '\t';
+
+load data inpath '/user/project/distinct_routes/part-v002-o000-r-00000' overwrite into table airlines.dist_routes;
+
+select * from dist_routes;
+OUTPUT:
+OK
+AAE     220     ALG     210
+AAE     220     CDG     1382
+AAE     220     IST     1701
+AAE     220     LYS     1335
+AAE     220     MRS     1353
+Time taken: 0.164 seconds, Fetched: 5 row(s)
+
+
+select a.source,a.sid, a.dest,a.did, b.name, b.city, b.country
+from dist_routes a left outer join airports b
+on a.did = b.airport_id;
+
+OUTPUT:
+OK
+AAE     220     ALG     210     Houari Boumediene Airport       Algier  Algeria
+AAE     220     CDG     1382    Charles de Gaulle International Airport Paris   France
+AAE     220     IST     1701    Atatürk International Airport   Istanbul        Turkey
+AAE     220     LYS     1335    Lyon Saint-Exupéry Airport      Lyon    France
+AAE     220     MRS     1353    Marseille Provence Airport      Marseille       France
+
+
+#Q4 DETERMINE THE DISTANCES TRAVELLED ON EACH ROUTE, SORT DESCENDING AND DISPLAY THE TOP 5 WITH LONGEST DISTANCES
+a = load '/user/project/routes.dat' using PigStorage (',') AS (airline:chararray, ID:long, source:chararray, sid:chararray, dest:chararray, did:chararray, codeshare:chararray, direct:int , equip:long);
+b = load '/user/project/airports.dat' using PigStorage(',') AS (airport_id:chararray , name:chararray , city:chararray , country:chararray , IATA:chararray , ICAO:chararray , lat:float , lon:float , altitude:long , timezone:float , DST:chararray , Tzdata:chararray , type:chararray , src:chararray);
+c = join a by sid, b by airport_id;
+d = foreach c generate sid , source , lat as lats , lon as lons , dest , did;
+e = join d by did , b by airport_id;
+f = foreach e generate sid , source , lats , lons , did , dest , lat as latd , lon as lond;
+g = foreach f generate sid , source , did , dest , SQRT((latd - lats) * (latd- lats) + (lond - lons) * (lond - lons)) * 111 as distance;
+h = limit g 5;
+STORE h into '/user/project/routes_with_distances' using PigStorage('\t') ;
+
+fs -ls/user/project;
+fs -ls /user/project/routes_with_distances;
+fs -cat /user/project/routes_with_distances/part-r-00000;

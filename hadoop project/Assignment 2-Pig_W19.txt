@@ -1,0 +1,54 @@
+Assignment #2 Pig Programming
+
+-------------------------
+-- Dataset & Preparation
+-------------------------
+
+1. In this assignment, you will work with datasets from airline industry. The datasets are available in https://openflights.org/data.html .
+Note that the datasets may contain outdated and obsolete data. Use for learning purposes only.
+If you download the datasets directly from its source, you may need to clean up first, such as removing double quotes etc.
+
+2. Download the flight.tgz archive.
+
+3. Copy the archive to your Linux VM.
+
+4. Untar the archive in your Linux VM using the tar command. You will need -x and -f options at a minimum. -x option extracts an archive and -f identifies the archive file you want to extract.See https://www.interserver.net/tips/kb/use-tar-command-linux-examples for more info. 
+
+5. The archive extracts into a new directory named flight. You will find three datasets in it.Visit https://openflights.org/data.html for explanation of individual datasets.
+
+6. The data is ISO 8859-1 (Latin-1) encoded. The special value \N is used for "NULL" to indicate that no value is available. You may need to clean the '\N' values from the datasets if you think it's necessary. 
+
+-----------------------------
+-- Datasets 
+-- 
+-- 1. airlines.dat
+-- 2. airports.dat
+-- 3. routes.dat
+-----------------------------
+
+------------------------
+-- Assignment Tasks
+------------------------
+echo –e "set job.name 'airports' \n a = load 'user/pig/airports.dat' AS (id:chararray , name:chararry , city:Chararray ,country:chararray, IATA: chararray, ICAO:chararray, lat:float , lon:float , altitude:long , timezone:float , DST:chararrray , Tz:chararraytype:chararray, source:chararrayh); \n dump a:" > /home/lab/project/airports.pigcat airports.pigset job.name 'airportsa = load '/user/project/airports.dat' AS (id:chararray, name:chararray, city:chararray,country:chararray, IATA: chararray, ICAO:chararray, lat:float , lon:float, altitude:long, timezone:float, DST:chararrray, Tz:chararray,type:chararray, source:chararray);dump a;
+
+1) (2 pts) List the Airline_ID and name of all airlines where the name includes "Air Canada". You search should be non-case sensitive and include "Air Canada" with or without the spaces.a = load '/user/pig/airlines.dat' USING PigStorage(',') AS (airline_id:long , name:chararray , alias:chararray , IATA:chararray , ICAO:chararray, callsign:chararray , country:chararray , active:chararray);b = foreach a generate airline_id,LOWER(name) as name;c = filter b by (name matches '.*air.*canada.*');dump c;
+
+2) (2 pts) Find the number of airports in each country. Submit the first five countries with the highest number of airports, together with the country names.
+a = load '/user/pig/airports.dat' using PigStorage(',') AS(airport_id: chararray,name:chararray,city:chararray,country:chararray,IATA:chararray,ICAO:chararray,lat:float,long:float,altitude:long,timezone:float,DST:chararray,Tzdata:chararray,type:chararray,source:chararray);b = group a by country;c = foreach b generate group as country,COUNT(a) as cnt;d = order c by cnt desc;e = limit d 5;dump e;
+
+3) (4 pts) Find the distinct routes between airports, based on source and destination airports. Submit the first five rows.a = load '/user/pig/routes.dat' using PigStorage(',') AS (airline:chararray, ID:long, source:chararray, sid:long, dest:chararray, did:chararray, codeshare:chararray, direct:int, equip:long);b = foreach a generate source,dest;c = distinct b;d = limit c 5;dump d;
+
+4) (7 pts) Generate a table with source airport ID, source airport name, destination airport id, destinationairport name and distance in kilometres using the output from the previous question. 
+Save your output in a tab separated file in an HDFS directory named 'routes_with_distances'. Submit the screenshot of the directory listing and the first five lines of your output file.
+
+Remember that you will have to get the latitude and longitude of each airport, using two joins-one for source and one for destination airport.
+Each degree of latitude and longitude (close to the equator) is roughly 111 km.Calculate the distance in kilometres using the simple Euclidian formula:
+
+distance = SQRT((lat2 - lat1) * (lat2 - lat1) + (lon2 - lon1) * (lon2 - lon1)) * 111
+
+Haversine distance formula gives more accurate results when calculating the distance between two geographic coordinates.For the purposes of this exercise, however, the Euclidian distance would be sufficient.
+a = load '/user/pig/routes.dat' using PigStorage (',') AS (airline:chararray, ID:long, source:chararray, sid:chararray, dest:chararray, did:chararray, codeshare:chararray, direct:int , equip:long);b = load '/user/pig/airports.dat' using PigStorage(',') AS (airport_id:chararray , name:chararray , city:chararray , country:chararray , IATA:chararray , ICAO:chararray , lat:float , lon:float , altitude:long , timezone:float , DST:chararray , Tzdata:chararray , type:chararray , src:chararray);c = join a by sid, b by airport_id;d = foreach c generate sid , source , lat as lats , lon as lons , dest , did;e = join d by did , b by airport_id;f = foreach e generate sid , source , lats , lons , did , dest , lat as latd , lon as lond;g = foreach f generate sid , source , did , dest , SQRT((latd - lats) * (latd- lats) + (lond - lons) * (lond - lons)) * 111 as distance;h = limit g 5;STORE h into '/user/pig/routes_with_distances' using PigStorage('\t') ;
+fs -ls/user/pig;fs -ls /user/pig/routes_with_distances;fs -cat /user/pig/routes_with_distances/part-r-00000;
+Submission:
+Pig Latin scripts uploaded in pdf or text file
+Output of each query as specified
